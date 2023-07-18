@@ -92,18 +92,18 @@ MoreBuild.pillarsMenuBuilder = function(subMenu, player)
   _tooltip.description = MoreBuild.textPillarDescription .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
 
-  _sprite = {}
-  _sprite.sprite = 'location_shop_mall_01_3'
-  _sprite.northSprite = 'location_shop_mall_01_3'
-
-  _name = getText 'ContextMenu_White_Plaster_Pillar'
-
-  _option = subMenu[getText 'ContextMenu_White_Plaster']:addOption(_name, nil, MoreBuild.onBuildWoodenPillar, _sprite, player, _name)
-
-  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
-  _tooltip:setName(_name)
-  _tooltip.description = MoreBuild.textPillarDescription .. _tooltip.description
-  _tooltip:setTexture(_sprite.sprite)
+  --_sprite = {}
+  --_sprite.sprite = 'location_shop_mall_01_3'
+  --_sprite.northSprite = 'location_shop_mall_01_3'
+  --
+  --_name = getText 'ContextMenu_White_Plaster_Pillar'
+  --
+  --_option = subMenu[getText 'ContextMenu_White_Plaster']:addOption(_name, nil, MoreBuild.onBuildWoodenPillar, _sprite, player, _name)
+  --
+  --_tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
+  --_tooltip:setName(_name)
+  --_tooltip.description = MoreBuild.textPillarDescription .. _tooltip.description
+  --_tooltip:setTexture(_sprite.sprite)
 
   _sprite = {}
   _sprite.sprite = 'walls_exterior_wooden_02_3'
@@ -131,7 +131,7 @@ MoreBuild.pillarsMenuBuilder = function(subMenu, player)
 
   MoreBuild.neededTools = {'Hammer'}
 
-  local needSkills = {
+  needSkills = {
     Woodwork = MoreBuild.skillLevel.stoneArchitecture
   }
 

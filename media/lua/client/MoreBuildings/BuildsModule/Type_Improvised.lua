@@ -59,7 +59,7 @@ MoreBuild.improvisedMenuBuilder = function(subMenu, player)
 
   MoreBuild.neededTools = {'Hammer'}
 
-  local needSkills = {
+  needSkills = {
     Woodwork = MoreBuild.skillLevel.complexContainer
   }
 
@@ -90,7 +90,7 @@ MoreBuild.improvisedMenuBuilder = function(subMenu, player)
 
   MoreBuild.neededTools = {'Screwdriver'}
 
-  local needSkills = {
+  needSkills = {
     Woodwork = MoreBuild.skillLevel.advancedContainer
   }
 
@@ -137,7 +137,7 @@ MoreBuild.improvisedMenuBuilder = function(subMenu, player)
 
   MoreBuild.neededTools = {'Hammer'}
 
-  local needSkills = {
+  needSkills = {
     Woodwork = MoreBuild.skillLevel.simpleContainer
   }
 
@@ -212,7 +212,7 @@ MoreBuild.trashMenuBuilder = function(subMenu, player)
 
   MoreBuild.neededTools = {'Screwdriver'}
 
-  local needSkills = {
+  needSkills = {
     Woodwork = MoreBuild.skillLevel.complexContainer
   }
 
@@ -367,6 +367,38 @@ MoreBuild.onBuildMetalContainer = function(ignoreThisArgument, sprite, player, n
   function _container:getHealth()
     self.javaObject:getContainer():setType(icon)
     return MoreBuild.healthLevel.metalContainer + buildUtil.getWoodHealth(self)
+  end
+
+  getCell():setDrag(_container, player)
+end
+
+MoreBuild.onBuildMilitaryContainer = function(ignoreThisArgument, sprite, player, name, icon)
+  local _container = ISWoodenContainer:new(sprite.sprite, sprite.northSprite)
+
+  _container.renderFloorHelper = true
+  _container.canBeAlwaysPlaced = true
+  _container.canBeLockedByPadlock = true
+  _container.player = player
+  _container.name = name
+
+  if sprite.eastSprite then
+    _container:setEastSprite(sprite.eastSprite)
+  end
+
+  if sprite.southSprite then
+    _container:setSouthSprite(sprite.southSprite)
+  end
+
+  _container.modData['need:Base.Plank'] = 10
+  _container.modData['need:Base.Nails'] = 10
+  _container.modData['need:Base.SmallSheetMetal'] = 4
+  _container.modData['need:Base.MetalPipe'] = 2
+  _container.modData['use:Base.WeldingRods'] = 2
+  _container.modData['xp:Woodwork'] = 5
+
+  function _container:getHealth()
+    self.javaObject:getContainer():setType(icon)
+    return MoreBuild.healthLevel.woodContainer + buildUtil.getWoodHealth(self)
   end
 
   getCell():setDrag(_container, player)

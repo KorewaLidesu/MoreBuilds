@@ -69,6 +69,7 @@ MoreBuild.toolsList['HandShovel'] = {'farming.HandShovel'}
 MoreBuild.toolsList['Saw'] = {'Base.Saw'}
 MoreBuild.toolsList['Shovel'] = {'Base.Shovel', 'Base.Shovel2'}
 MoreBuild.toolsList['BlowTorch'] = {'Base.BlowTorch'}
+MoreBuild.toolsList['WeldingMask'] = {'Base.WeldingMask'}
 
 --- 建筑技能需求定义
 --- @todo: 优化结构
@@ -99,9 +100,9 @@ MoreBuild.skillLevel = {
   complexArchitecture = 5,
   nearlyimpossible = 5,
   barbecueObject = 4,
-  fridgeObject = 3,
+  fridgeObject = 4,
   lightingObject = 2,
-  generatorObject = 3,
+  --generatorObject = 3,
   windowsObject = 2,
 }
 
@@ -430,7 +431,7 @@ MoreBuild.equipToolPrimary = function(object, player, tool)
 end
 
 --- 装备次要工具
---- @param object Isoobject: Isoobject实例
+--- @param object IsoObject: IsoObject实例
 --- @param player number: IsoPlayer索引
 --- @param tool string: 工具类型
 --- @info 未使用

@@ -14,15 +14,19 @@ MoreBuild.SurvivalMenuBuilder = function(subMenu, player)
 
   MoreBuild.neededMaterials = {
     {
+      Material = 'Base.Stone',
+      Amount = 30
+    },
+    {
+      Material = 'Base.Plank',
+      Amount = 5
+    },
+    {
       Material = 'Base.Nails',
       Amount = 10
     },
     {
       Material = 'Base.Rope',
-      Amount = 5
-    },
-    {
-      Material = 'Base.Plank',
       Amount = 5
     },
     {
@@ -62,12 +66,16 @@ MoreBuild.SurvivalMenuBuilder = function(subMenu, player)
       Amount = 4
     },
     {
+      Material = 'Base.MetalBar',
+      Amount = 2
+    },
+    {
       Material = 'Base.Screws',
       Amount = 5
     },
     {
       Material = 'Radio.ElectricWire',
-      Amount = 2
+      Amount = 4
     },
     {
       Material = 'Base.ElectronicsScrap',
@@ -77,10 +85,10 @@ MoreBuild.SurvivalMenuBuilder = function(subMenu, player)
 
   MoreBuild.neededTools = {'Hammer', 'Screwdriver', 'Saw'}
 
-  local needSkills = {
-    Woodwork = MoreBuild.skillLevel.advancedContainer,
+  needSkills = {
+    Woodwork = MoreBuild.skillLevel.complexContainer,
     Electricity = MoreBuild.skillLevel.fridgeObject,
-    MetalWelding = 1
+    MetalWelding = 5
   }
 
   _sprite = {}
@@ -106,20 +114,23 @@ MoreBuild.SurvivalMenuBuilder = function(subMenu, player)
       Amount = 2
     },
     {
-      Material = 'Base.Screws',
-      Amount = 3
+      Material = 'Base.SmallSheetMetal',
+      Amount = 4
     },
     {
-      Material = 'Base.Plank',
-      Amount = 2
+      Material = 'Base.MetalBar',
+      Amount = 4
+    },
+    {
+      Material = 'Base.WeldingRods',
+      Amount = 1
     }
   }
 
-  MoreBuild.neededTools = {'Hammer', 'Screwdriver'}
+  MoreBuild.neededTools = {'WeldingMask', 'BlowTorch'}
 
-  local needSkills = {
-    Woodwork = MoreBuild.skillLevel.barbecueObject,
-    MetalWelding = 3
+  needSkills = {
+    MetalWelding = 7
   }
 
   _sprite = {}
@@ -135,49 +146,49 @@ MoreBuild.SurvivalMenuBuilder = function(subMenu, player)
 
   -- Generator --
 
-  MoreBuild.neededMaterials = {
-    {
-      Material = 'Radio.ElectricWire',
-      Amount = 2
-    },
-    {
-      Material = 'Base.Aluminum',
-      Amount = 10
-    },
-    {
-      Material = 'Base.SheetMetal',
-      Amount = 4
-    },
-    {
-      Material = 'Base.Screws',
-      Amount = 10
-    },
-    {
-      Material = 'Base.ElectronicsScrap',
-      Amount = 100
-    }
-  }
-
-  MoreBuild.neededTools = {'Screwdriver', 'Saw'}
-
-  local needSkills = {
-    Woodwork = MoreBuild.skillLevel.barbecueObject,
-    Electricity = MoreBuild.skillLevel.generatorObject,
-    MetalWelding = MoreBuild.skillLevel.generatorObject
-  }
-
-  _sprite = {}
-  _sprite.sprite = 'appliances_misc_01_0'
-  _sprite.northSprite = 'appliances_misc_01_0'
-
-  local perk = MoreBuild.playerSkills['Electricity']
-
-  _name = getText 'ContextMenu_Fuel_Generator'
-  _option = subMenu:addOption(_name, nil, MoreBuild.onBuildGenerator, _sprite, perk, _name, player)
-  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
-  _tooltip:setName(_name)
-  _tooltip.description = getText('Tooltip_Fuel_Generator') .. _tooltip.description
-  _tooltip:setTexture(_sprite.sprite)
+  --MoreBuild.neededMaterials = {
+  --  {
+  --    Material = 'Radio.ElectricWire',
+  --    Amount = 2
+  --  },
+  --  {
+  --    Material = 'Base.Aluminum',
+  --    Amount = 10
+  --  },
+  --  {
+  --    Material = 'Base.SheetMetal',
+  --    Amount = 4
+  --  },
+  --  {
+  --    Material = 'Base.Screws',
+  --    Amount = 10
+  --  },
+  --  {
+  --    Material = 'Base.ElectronicsScrap',
+  --    Amount = 100
+  --  }
+  --}
+  --
+  --MoreBuild.neededTools = {'Screwdriver', 'Saw'}
+  --
+  --local needSkills = {
+  --  Woodwork = MoreBuild.skillLevel.barbecueObject,
+  --  Electricity = MoreBuild.skillLevel.generatorObject,
+  --  MetalWelding = MoreBuild.skillLevel.generatorObject
+  --}
+  --
+  --_sprite = {}
+  --_sprite.sprite = 'appliances_misc_01_0'
+  --_sprite.northSprite = 'appliances_misc_01_0'
+  --
+  --local perk = MoreBuild.playerSkills['Electricity']
+  --
+  --_name = getText 'ContextMenu_Fuel_Generator'
+  --_option = subMenu:addOption(_name, nil, MoreBuild.onBuildGenerator, _sprite, perk, _name, player)
+  --_tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
+  --_tooltip:setName(_name)
+  --_tooltip.description = getText('Tooltip_Fuel_Generator') .. _tooltip.description
+  --_tooltip:setTexture(_sprite.sprite)
 
   -- Fireplace --
 
@@ -198,7 +209,7 @@ MoreBuild.SurvivalMenuBuilder = function(subMenu, player)
 
   MoreBuild.neededTools = {'Hammer', 'Screwdriver'}
 
-  local needSkills = {
+  needSkills = {
     Woodwork = 7
   }
 
@@ -247,39 +258,44 @@ MoreBuild.onBuildBarbecue = function(ignoreThisArgument, sprite, player, name)
   _Barbecue.player = player
   _Barbecue.name = name
 
-  _Barbecue.modData['need:Base.Plank'] = 2
   _Barbecue.modData['need:Base.SheetMetal'] = 2
-  _Barbecue.modData['need:Base.Screws'] = 3
-  _Barbecue.modData['xp:Woodwork'] = 5
+  _Barbecue.modData['need:Base.MetalBar'] = 4
+  _Barbecue.modData['use:Base.BlowTorch'] = 4
+  _Barbecue.modData['use:Base.WeldingRods'] = 3
+  _Barbecue.modData['xp:MetalWelding'] = 5
+
+  MoreBuild.equipToolPrimary(_Barbecue, player, 'WeldingMask')
+
   getCell():setDrag(_Barbecue, player)
 end
 
-MoreBuild.onBuildGenerator = function(ignoreThisArgument, sprite, perk, name, player)
-  local _Generator = ISGenerator:new(sprite.sprite, sprite.northSprite, perk)
-  _Generator.player = player
-  _Generator.name = name
-  _Generator.completionSound = "BuildMetalStructureSmallScrap"
-  _Generator.craftingBank = "BlowTorch"
-  _Generator.noNeedHammer = true
-  _Generator.actionAnim = "BlowTorchMid"
-
-  _Generator.modData['need:Radio.ElectricWire'] = 2
-  _Generator.modData['need:Base.Aluminum'] = 10
-  _Generator.modData['need:Base.SheetMetal'] = 4
-  _Generator.modData['need:Base.Screws'] = 10
-  _Generator.modData['need:Base.ElectronicsScrap'] = 100
-  _Generator.modData['xp:Woodwork'] = 10
-  _Generator.modData['xp:Electricity'] = 25
-  getCell():setDrag(_Generator, player)
-end
+--MoreBuild.onBuildGenerator = function(ignoreThisArgument, sprite, perk, name, player)
+--  local _Generator = ISGenerator:new(sprite.sprite, sprite.northSprite, perk)
+--  _Generator.player = player
+--  _Generator.name = name
+--  _Generator.completionSound = "BuildMetalStructureSmallScrap"
+--  _Generator.craftingBank = "BlowTorch"
+--  _Generator.noNeedHammer = true
+--  _Generator.actionAnim = "BlowTorchMid"
+--
+--  _Generator.modData['need:Radio.ElectricWire'] = 2
+--  _Generator.modData['need:Base.Aluminum'] = 10
+--  _Generator.modData['need:Base.SheetMetal'] = 4
+--  _Generator.modData['need:Base.Screws'] = 10
+--  _Generator.modData['need:Base.ElectronicsScrap'] = 100
+--  _Generator.modData['xp:Woodwork'] = 10
+--  _Generator.modData['xp:Electricity'] = 25
+--  getCell():setDrag(_Generator, player)
+--end
 
 MoreBuild.onBuildWaterWell = function(ignoreThisArgument, player, sprite, waterMax)
   local _WaterWell = ISWaterWell:new(player, sprite, SandboxVars.MoreBuilds.MaxWaterWallStorageAmount) --waterMax
   _WaterWell.player = player
 
+  _WaterWell.modData['need:Base.Stone'] = 30
+  _WaterWell.modData['need:Base.Plank'] = 5
   _WaterWell.modData['need:Base.Nails'] = 10
   _WaterWell.modData['need:Base.Rope'] = 5
-  _WaterWell.modData['need:Base.Plank'] = 5
   _WaterWell.modData['need:Base.Gravelbag'] = 2
   _WaterWell.modData['need:Base.BucketEmpty'] = 1
   _WaterWell.modData['xp:Woodwork'] = 50
@@ -305,11 +321,13 @@ MoreBuild.onBuildfridge = function(ignoreThisArgument, sprite, player, name, ico
   end
 
   _fridge.modData['need:Base.SheetMetal'] = 4
+  _fridge.modData['need:Base.MetalBar'] = 2
   _fridge.modData['need:Base.Screws'] = 5
-  _fridge.modData['need:Radio.ElectricWire'] = 2
+  _fridge.modData['need:Radio.ElectricWire'] = 4
   _fridge.modData['need:Base.ElectronicsScrap'] = 10
   _fridge.modData['xp:Woodwork'] = 30
   _fridge.modData['xp:Electricity'] = 5
+  _fridge.modData['xp:MetalWelding'] = 5
 
   MoreBuild.equipToolPrimary(_fridge, player, 'Screwdriver')
 

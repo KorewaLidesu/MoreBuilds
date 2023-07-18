@@ -132,26 +132,26 @@ MoreBuild.wallsMenuBuilder = function(subMenu, player)
 
   _tooltip:setTexture(_sprite.sprite)
 
-  _sprite = {}
-  _sprite.sprite = 'location_shop_mall_01_0'
-  _sprite.northSprite = 'location_shop_mall_01_1'
-  _sprite.corner = 'location_shop_mall_01_3'
-
-  _name = getText 'ContextMenu_White_Plaster'
-
-  _option = subMenu[getText 'ContextMenu_White_Plaster']:addOption(_name, nil, MoreBuild.onBuildWoodenWall, _sprite, player, _name)
-
-  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
-  _tooltip:setName(_name)
-  _tooltip.description = MoreBuild.textWallDescription .. _tooltip.description
-
-  if MoreBuild.playerCanPlaster then
-    _tooltip.description = _tooltip.description .. MoreBuild.textPlasterGreen
-  else
-    _tooltip.description = _tooltip.description .. MoreBuild.textPlasterRed
-  end
-
-  _tooltip:setTexture(_sprite.sprite)
+  --_sprite = {}
+  --_sprite.sprite = 'location_shop_mall_01_0'
+  --_sprite.northSprite = 'location_shop_mall_01_1'
+  --_sprite.corner = 'location_shop_mall_01_3'
+  --
+  --_name = getText 'ContextMenu_White_Plaster'
+  --
+  --_option = subMenu[getText 'ContextMenu_White_Plaster']:addOption(_name, nil, MoreBuild.onBuildWoodenWall, _sprite, player, _name)
+  --
+  --_tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
+  --_tooltip:setName(_name)
+  --_tooltip.description = MoreBuild.textWallDescription .. _tooltip.description
+  --
+  --if MoreBuild.playerCanPlaster then
+  --  _tooltip.description = _tooltip.description .. MoreBuild.textPlasterGreen
+  --else
+  --  _tooltip.description = _tooltip.description .. MoreBuild.textPlasterRed
+  --end
+  --
+  --_tooltip:setTexture(_sprite.sprite)
 
   _sprite = {}
   _sprite.sprite = 'walls_exterior_wooden_02_0'
@@ -185,7 +185,7 @@ MoreBuild.wallsMenuBuilder = function(subMenu, player)
     }
   }
 
-  local needSkills = {
+  needSkills = {
     Woodwork = MoreBuild.skillLevel.stoneArchitecture
   }
 
@@ -367,7 +367,7 @@ MoreBuild.wallStylesMenuBuilder = function(subMenu, player, context)
     getText 'ContextMenu_Gray_Plaster',
     getText 'ContextMenu_Gray_Wood',
     getText 'ContextMenu_Red_Barnwood',
-    getText 'ContextMenu_White_Plaster',
+    --getText 'ContextMenu_White_Plaster',
     getText 'ContextMenu_White_Wood',
     getText 'ContextMenu_Brown_Cinder_Block',
     getText 'ContextMenu_Gray_Cinder_Block',

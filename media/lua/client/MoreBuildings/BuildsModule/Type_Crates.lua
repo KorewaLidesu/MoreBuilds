@@ -102,6 +102,31 @@ MoreBuild.cratesMenuBuilder = function(subMenu, player)
   _tooltip.description = getText 'Tooltip_Dog_House' .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
 
+  MoreBuild.neededMaterials = {
+    {
+      Material = 'Base.Plank',
+      Amount = 10
+    },
+    {
+      Material = 'Base.Nails',
+      Amount = 10
+    },
+    {
+      Material = 'Base.SmallSheetMetal',
+      Amount = 2
+    },
+    {
+      Material = 'Base.MetalPipe',
+      Amount = 2
+    },
+    {
+      Material = 'Base.WeldingRods',
+      Amount = 1
+    }
+  }
+
+  MoreBuild.neededTools = {'Hammer', 'WeldingMask', 'BlowTorch'}
+
   _sprite = {}
   _sprite.sprite = 'morebuild_01_3'
   _sprite.northSprite = 'morebuild_01_9'
@@ -109,9 +134,9 @@ MoreBuild.cratesMenuBuilder = function(subMenu, player)
   _name = getText 'ContextMenu_ArmyGreen_MilitaryCrate'
   _icon = 'militarycrate'
 
-  _option = subMenu:addOption(_name, nil, MoreBuild.onBuildWoodenContainer, _sprite, player, _name, _icon)
+  _option = subMenu:addOption(_name, nil, MoreBuild.onBuildMilitaryContainer, _sprite, player, _name, _icon)
 
-  _tooltip = MoreBuild.canBuildObject({Woodwork = 6}, _option, player)
+  _tooltip = MoreBuild.canBuildObject({Woodwork = 8, MetalWelding = 4}, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText 'Tooltip_ArmyGreen_MilitaryCrate' .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
@@ -123,12 +148,25 @@ MoreBuild.cratesMenuBuilder = function(subMenu, player)
   _name = getText 'ContextMenu_ArmyGray_MilitaryCrate'
   _icon = 'militarycrate'
 
-  _option = subMenu:addOption(_name, nil, MoreBuild.onBuildWoodenContainer, _sprite, player, _name, _icon)
+  _option = subMenu:addOption(_name, nil, MoreBuild.onBuildMilitaryContainer, _sprite, player, _name, _icon)
 
-  _tooltip = MoreBuild.canBuildObject({Woodwork = 6}, _option, player)
+  _tooltip = MoreBuild.canBuildObject({Woodwork = 8, MetalWelding = 4}, _option, player)
   _tooltip:setName(_name)
   _tooltip.description = getText 'Tooltip_ArmyGray_MilitaryCrate' .. _tooltip.description
   _tooltip:setTexture(_sprite.sprite)
+
+  MoreBuild.neededMaterials = {
+    {
+      Material = 'Base.Plank',
+      Amount = 2
+    },
+    {
+      Material = 'Base.Nails',
+      Amount = 2
+    }
+  }
+
+  MoreBuild.neededTools = {'Hammer'}
 
   local _cardboardBoxesData = MoreBuild.getCardboardBoxesData()
 

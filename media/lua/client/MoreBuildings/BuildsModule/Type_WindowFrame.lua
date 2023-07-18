@@ -132,26 +132,26 @@ MoreBuild.windowFramesMenuBuilder = function(subMenu, player)
 
   _tooltip:setTexture(_sprite.sprite)
 
-  _sprite = {}
-  _sprite.sprite = 'location_shop_mall_01_8'
-  _sprite.northSprite = 'location_shop_mall_01_9'
-  _sprite.corner = 'location_shop_mall_01_3'
-
-  _name = getText 'ContextMenu_White_Plaster_WindowFrame'
-
-  _option = subMenu[getText 'ContextMenu_White_Plaster']:addOption(_name, nil, MoreBuild.onBuildWoodenWindowFrame, _sprite, player, _name)
-
-  _tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
-  _tooltip:setName(_name)
-  _tooltip.description = MoreBuild.textWindowFrameDescription .. _tooltip.description
-
-  if MoreBuild.playerCanPlaster then
-    _tooltip.description = _tooltip.description .. MoreBuild.textPlasterGreen
-  else
-    _tooltip.description = _tooltip.description .. MoreBuild.textPlasterRed
-  end
-
-  _tooltip:setTexture(_sprite.sprite)
+  --_sprite = {}
+  --_sprite.sprite = 'location_shop_mall_01_8'
+  --_sprite.northSprite = 'location_shop_mall_01_9'
+  --_sprite.corner = 'location_shop_mall_01_3'
+  --
+  --_name = getText 'ContextMenu_White_Plaster_WindowFrame'
+  --
+  --_option = subMenu[getText 'ContextMenu_White_Plaster']:addOption(_name, nil, MoreBuild.onBuildWoodenWindowFrame, _sprite, player, _name)
+  --
+  --_tooltip = MoreBuild.canBuildObject(needSkills, _option, player)
+  --_tooltip:setName(_name)
+  --_tooltip.description = MoreBuild.textWindowFrameDescription .. _tooltip.description
+  --
+  --if MoreBuild.playerCanPlaster then
+  --  _tooltip.description = _tooltip.description .. MoreBuild.textPlasterGreen
+  --else
+  --  _tooltip.description = _tooltip.description .. MoreBuild.textPlasterRed
+  --end
+  --
+  --_tooltip:setTexture(_sprite.sprite)
 
   _sprite = {}
   _sprite.sprite = 'walls_exterior_wooden_02_8'
@@ -187,7 +187,7 @@ MoreBuild.windowFramesMenuBuilder = function(subMenu, player)
 
   MoreBuild.neededTools = {'Hammer'}
 
-  local needSkills = {
+  needSkills = {
     Woodwork = MoreBuild.skillLevel.stoneArchitecture
   }
 
